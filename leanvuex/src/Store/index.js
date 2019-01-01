@@ -8,19 +8,25 @@ const store = new Vuex.Store({
     state:{
         count:0,
         addPayLoad:1,
-        useObject:2
+        useObject:2,
+        theRightWay:3
     },
     getters:{
-
-    },
-    action:{
 
     },
     mutations:{
         increaseCount:(state) => state.count++,
         passPayLoad:(state,payload)=>state.addPayLoad *= payload,
-        objMutation:(state,payload)=>state.useObject += 3
-    }
+        objMutation:(state,payload)=>state.useObject += 3,
+        theRightFunc:(state,payload)=> state.theRightWay *= 2
+    },
+    actions:{
+        theRightFunc(context){
+            return context.commit('theRightFunc');
+        }
+
+    },
+
 })
 
 

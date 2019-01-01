@@ -13,6 +13,19 @@
       <hr>
         <span class="badge badge-primary m-1">{{ showObject }}</span>
         <button @click="handlePayObj" class="btn btn-info"> click me </button>
+        <hr>
+            <div class="container">
+                <h1 class="badge badge-danger">This is using Vuex Action</h1>
+                    <p>
+                     When the button is clicked an action is dispatched to the store.
+                     On completion of the action , the action will commit the mutation , which 
+                     will then increase the number
+
+                    </p>
+                <hr>
+                <span class="badge badge-secondary m-1">{{ showAction }}</span>
+                <button @click="handleTrueFunc" class="btn btn btn-warning">Send ction </button>
+            </div>
       </div>
   </div>
 </template>
@@ -36,6 +49,9 @@ export default {
     },
     showObject:function(){
         return this.$store.state.useObject;
+    },
+    showAction:function(){
+        return this.$store.state.theRightWay;
     }
 
     },
@@ -50,6 +66,12 @@ export default {
             return this.$store.commit({
                 type:'objMutation',
                 amount:3
+            })
+        },
+        handleTrueFunc:function(){
+            return this.$store.dispatch('theRightFunc',{
+                type:'theRightFunc',
+                amount:2
             })
         }
     }
