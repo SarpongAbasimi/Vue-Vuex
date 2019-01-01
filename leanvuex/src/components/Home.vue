@@ -8,8 +8,11 @@
         <span class="badge badge-dark m-1">{{ count }}</span>
       <button @click="handleIncrease" class="btn btn-primary">click me</button>
       <hr>
-      <span class="badge badge-success m-1"> {{showAddPyload }}</span>
-      <button @click='handlePayload' class="btn btn-danger">click me </button>
+        <span class="badge badge-success m-1"> {{showAddPyload }}</span>
+        <button @click='handlePayload' class="btn btn-danger">click me </button>
+      <hr>
+        <span class="badge badge-primary m-1">{{ showObject }}</span>
+        <button @click="handlePayObj" class="btn btn-info"> click me </button>
       </div>
   </div>
 </template>
@@ -30,14 +33,24 @@ export default {
         },
     showAddPyload:function(){
         return this.$store.state.addPayLoad;
+    },
+    showObject:function(){
+        return this.$store.state.useObject;
     }
+
     },
     methods:{
         handleIncrease:function(){
             return this.$store.commit('increaseCount');
         },
         handlePayload:function(){
-           return this.$store.commit('passPayLoad',(Math.random()*1.2)+1) 
+           return this.$store.commit('passPayLoad',Math.floor((Math.random()*1)+5)) 
+        },
+        handlePayObj:function(){
+            return this.$store.commit({
+                type:'objMutation',
+                amount:3
+            })
         }
     }
 }
