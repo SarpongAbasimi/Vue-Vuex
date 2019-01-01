@@ -37,7 +37,7 @@ export default {
             return this.$store.commit('increaseCount');
         },
         handlePayload:function(){
-           return this.$store.commit('passPayLoad',10) 
+           return this.$store.commit('passPayLoad',(Math.random()*1.2)+1) 
         }
     }
 }

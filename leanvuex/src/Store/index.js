@@ -7,7 +7,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     state:{
         count:0,
-        addPayLoad:10
+        addPayLoad:2
     },
     getters:{
 
