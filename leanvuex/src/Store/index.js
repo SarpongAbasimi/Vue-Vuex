@@ -21,7 +21,7 @@ const store = new Vuex.Store({
         theRightFunc:(state,payload)=> state.theRightWay *= 2
     },
     actions:{
-        theRightFunc(context){
+        theRightFunc:function(context){
             return context.commit('theRightFunc');
         }
 
